@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My App</title>
+	<style>
+.back-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: gray;
+color:#ffffff;
+}
+
+		body {
+			background-color: #000;
+		}
+		.shape {
+			position: absolute;
+			background-color: #ccc;
+			border-radius: 50%;
+			width: 10px;
+			height: 10px;
+			animation: twinkling 3s infinite;
+		}
+		@keyframes twinkling {
+			0% {
+				opacity: 1;
+				transform: scale(1);
+			}
+			100% {
+				opacity: 0;
+				transform: scale(10);
+			}
+		}
+		.container {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: rgba(0, 0, 0, 0.75);
+			width: 75%;
+			height: 75%;
+			padding: 20px;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.text {
+			color: #fff;
+			font-size: 24px;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+<button class="back-btn">Back</button>
+
+	<div class="container">
+		<div class="text">
+			<h1> How To Play The Game?</h1>
+<h3> The game is pretty simple and easy to learn to play. To play the game, go to the Play Menu and select whom you want to play against, after clicking on it, you game screen will appear. To start playing you have to press the button associated with your player, you have to spam tap to win, first to reach 100 points wins!</h3>
+<br>
+<br>
+<p>All Copyrights Reserved from Wikipidea Productions (R)</p>
+		</div>
+	</div>
+
+	<script>
+		function createShape() {
+			const shape = document.createElement("div");
+			shape.classList.add("shape");
+			shape.style.left = `${Math.random() * 100}%`;
+			shape.style.top = `${Math.random() * 100}%`;
+			document.body.appendChild(shape);
+			setTimeout(() => {
+				shape.remove();
+			}, 3000);
+		}
+
+		setInterval(() => {
+			createShape();
+		}, 200);
+const backButton = document.querySelector('.back-btn');
+backButton.addEventListener('click', () => {
+  window.location.href = 'hmm.html';
+});
+
+	</script>
+</body>
+</html>

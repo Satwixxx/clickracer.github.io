@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Instruction Page</title>
+	<style>
+body {
+background-color:black
+}
+		canvas {
+			display: block;
+			margin: 0 auto;
+		}
+canvas {
+			display: block;
+			margin: 0 auto;
+		}
+
+		.overlay {
+			position: absolute;
+			top: 12.5%;
+			left: 12.5%;
+			width: 75%;
+			height: 75%;
+			background-color: rgba(0,0,0);
+			opacity: 0.9;
+		}
+
+		.text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: white;
+			font-size: 24px;
+			text-align: center;
+		}
+canvas {
+			display: block;
+			margin: 0 auto;
+		}
+
+		.overlay {
+			position: absolute;
+			top: 17.5%;
+			left: 12.5%;
+			width: 75%;
+			height: 75%;
+			background-color: rgba(0,0,0);
+			opacity: 0.9;
+		}
+
+		.text {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: white;
+			font-size: 24px;
+			text-align: center;
+		}
+
+		.back-button {
+			position: absolute;
+			font-size: 20px;
+			bottom: 0px;
+			right: 20px;
+			padding: 15px 75px;
+			background-color: white;
+			color: black;
+			border: none;
+			border-radius: 100px;
+			cursor: pointer;
+		}
+            .back-button:hover {
+			background-color: grey;
+			color: white;
+		}
+
+	</style>
+</head>
+<body>
+	<button class="back-button">Back</button>
+canvas id="canvas"></canvas>
+	<div class="overlay"></div>
+	<div class="text">
+		<p>This is a Game Created By Satwik Mishra and shall be the final version of the game "Click Racer", This game project took over 2 years to make. This game is made with HTML, CSS and Java Script Languages. The Game Was Majorly Helped By Khan Academy as it taught the developer, Satwik since the beginning. If you find any bug in the game, Kindly report it to Satwik for the matter to be resolved within the next 3 business days. Thank You For Playing the Game and Hope You Enjoy!</p>
+<br> 
+<p>
+			All Rights Reserved From Wikipedia Productions (R)</p>
+	</div>
+	
+	<canvas id="canvas"></canvas>
+	<script>
+		const canvas = document.getElementById('canvas');
+		const ctx = canvas.getContext('2d');
+		const width = canvas.width = window.innerWidth;
+		const height = canvas.height = window.innerHeight;
+		const colors = ['#ffffff', '#8a8a8a', '#e0ffcf', '#cffffe', '#ffcfd3'];
+		const numShapes = 200;
+
+		function random(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		function draw() {
+			ctx.clearRect(0, 0, width, height);
+
+			for (let i = 0; i < numShapes; i++) {
+				const x = random(0, width);
+				const y = random(0, height);
+				const size = random(10, 10);
+				const color = colors[random(0, colors.length - 1)];
+
+				ctx.fillStyle = color;
+				ctx.fillRect(x, y, size, size);
+			}
+
+			setTimeout(draw, 150);
+		}
+
+		draw();
+	</script>
+<button class="back-button" onclick="window.location.href='hmm.html'">Back</button>
+
+<div class= "textxx"> 
+</div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Click Racer</title>
+
+	    
+<style>
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      h1 {
+        font-size: 6rem;
+        font-weight: bold;
+        margin: 0;
+      }
+      h2 {
+        font-size: 2.5rem;
+        margin: 0;
+      }
+      #background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-image: url('twinkling-stars.gif');
+        background-repeat: repeat;
+        animation: twinkling 15s infinite;
+      }
+      .particle {
+        position: absolute;
+        background-color: #fff;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        pointer-events: none;
+        box-shadow: 0 0 5px 2px #fff;
+        animation: flicker 0.5s alternate-reverse infinite;
+      }
+      @keyframes twinkling {
+        0% { background-position: 0 0; }
+         100% { background-position: -1000px 0; }
+      }
+      @keyframes flicker {
+        from { opacity: 1; }
+        to { opacity: 0.5; }
+        /* Generate random flicker duration for each particle */
+        animation-duration: calc(0.2s + 0.3s * random());
+      }
+.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin-top: 30px;
+			margin-bottom: 50px;
+		}
+		.row {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.button {
+			display: block;
+			background-color: white;
+			color: black;
+			font-size: 24px;
+			font-weight: bold;
+			text-align: center;
+			padding: 20px;
+			margin: 10px;
+			border-radius: 100px;
+			width: 300px;
+		}
+		.button:hover {
+			background-color: grey;
+			color: white;
+		}
+
+    </style>
+  </head>
+  <body>
+    <div id="background"></div>
+    <h1>Click Racer</h1>
+    <h2>Version 1.2.0</h2>
+<div class="container">
+		<div class="row">
+			<button class="button" onclick="play()">Play</button>
+			<button class="button" onclick="howToPlay()">How To Play?</button>
+			<button class="button" onclick="info()">Info</button>
+</div>
+	</div>    
+<script>
+function howToPlay() {
+			window.location.href = "howto.html";			
+}
+		
+		function info() {
+			window.location.href = "info.html";
+		}
+		
+		function play() {
+			// redirect to the game page
+			window.location.href = "game.html";
+		}
+
+      // Add particles to the background
+      const NUM_PARTICLES = 50;
+      const particlesContainer = document.querySelector('#background');
+      const particleWidth = 2;
+      const particleHeight = 2;
+      const resetParticle = (particle) => {
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `-${particleHeight}px`;
+      };
+      for (let i = 0; i < NUM_PARTICLES; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random()}s`;
+        particlesContainer.appendChild(particle);
+        
+        particle.addEventListener('animationiteration', () => {
+          if (parseInt(particle.style.top) > window.innerHeight) {
+            resetParticle(particle);
+          } else {
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+          }
+        });
+      }
+    </script>
+All CopyRights Reserved from Wikipedia Productions (R)
+  </body>
+</html>
